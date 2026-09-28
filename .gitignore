@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Raw data (download via scripts/download_data.py)
+data/raw/
+data/*.csv
+!data/README.md
+!data/demo_samples.csv
+
+# Local secrets / env
+.env
+.env.*
+
+# Temp / cache
+*.tmp
+.cache/
+.pytest_cache/
+.streamlit/secrets.toml
+
+# Large artifacts (keep trained model committed if small enough)
+# models/*.joblib  # intentionally NOT ignored — needed for Render

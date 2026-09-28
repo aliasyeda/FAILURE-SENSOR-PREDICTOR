@@ -1,0 +1,159 @@
+{
+  "dataset": {
+    "n_rows": 876100,
+    "n_machines": 100,
+    "datetime_min": "2015-01-01 06:00:00",
+    "datetime_max": "2016-01-01 06:00:00",
+    "positive_rate": 0.01881406232165278,
+    "n_positives": 16483,
+    "sensors": [
+      "volt",
+      "rotate",
+      "pressure",
+      "vibration"
+    ],
+    "horizon_hours": 24
+  },
+  "n_features": 31,
+  "feature_cols": [
+    "volt_roll_mean_12h",
+    "volt_roll_std_12h",
+    "volt_roll_min_12h",
+    "volt_roll_max_12h",
+    "volt_diff_1h",
+    "volt_diff_12h",
+    "volt_current",
+    "rotate_roll_mean_12h",
+    "rotate_roll_std_12h",
+    "rotate_roll_min_12h",
+    "rotate_roll_max_12h",
+    "rotate_diff_1h",
+    "rotate_diff_12h",
+    "rotate_current",
+    "pressure_roll_mean_12h",
+    "pressure_roll_std_12h",
+    "pressure_roll_min_12h",
+    "pressure_roll_max_12h",
+    "pressure_diff_1h",
+    "pressure_diff_12h",
+    "pressure_current",
+    "vibration_roll_mean_12h",
+    "vibration_roll_std_12h",
+    "vibration_roll_min_12h",
+    "vibration_roll_max_12h",
+    "vibration_diff_1h",
+    "vibration_diff_12h",
+    "vibration_current",
+    "age",
+    "model_code",
+    "error_count_24h"
+  ],
+  "split": {
+    "strategy": "chronological_global_datetime",
+    "train_frac": 0.7,
+    "val_frac": 0.15,
+    "test_frac": 0.15,
+    "train_rows": 612400,
+    "val_rows": 131200,
+    "test_rows": 131300,
+    "train_end": "2015-09-13 21:36:00",
+    "val_end": "2015-11-07 13:48:00"
+  },
+  "model": "HistGradientBoostingClassifier",
+  "threshold": 0.8,
+  "horizon_hours": 24,
+  "rolling_window_hours": 12,
+  "metrics_train": {
+    "accuracy": 0.9970362508164599,
+    "precision": 0.8673424416042309,
+    "recall": 0.9992383853769993,
+    "f1": 0.9286304117022531,
+    "confusion_matrix": [
+      [
+        598777,
+        1806
+      ],
+      [
+        9,
+        11808
+      ]
+    ],
+    "support_positive": 11817,
+    "support_negative": 600583,
+    "roc_auc": 0.9996609973617958
+  },
+  "metrics_val": {
+    "accuracy": 0.9955182926829268,
+    "precision": 0.7887269938650306,
+    "recall": 0.9823304680038204,
+    "f1": 0.8749468311356869,
+    "confusion_matrix": [
+      [
+        128555,
+        551
+      ],
+      [
+        37,
+        2057
+      ]
+    ],
+    "support_positive": 2094,
+    "support_negative": 129106,
+    "roc_auc": 0.9987670667273825
+  },
+  "metrics_test": {
+    "accuracy": 0.9942117288651943,
+    "precision": 0.7689959294436907,
+    "recall": 0.9663256606990622,
+    "f1": 0.8564412542500944,
+    "confusion_matrix": [
+      [
+        128273,
+        681
+      ],
+      [
+        79,
+        2267
+      ]
+    ],
+    "support_positive": 2346,
+    "support_negative": 128954,
+    "roc_auc": 0.9980992746397365
+  },
+  "feature_importance_top15": {
+    "error_count_24h": 0.7598214888632159,
+    "rotate_roll_mean_12h": 0.23670050759018263,
+    "volt_roll_mean_12h": 0.0886353766790798,
+    "model_code": 0.0500137640166133,
+    "vibration_roll_mean_12h": 0.048086234041071374,
+    "pressure_roll_mean_12h": 0.04520620905035151,
+    "age": 0.03467681069303463,
+    "vibration_roll_min_12h": 0.021365123076993498,
+    "pressure_roll_min_12h": 0.006266009852216791,
+    "volt_roll_std_12h": 0.003248843110912092,
+    "vibration_current": 0.0028831168831168876,
+    "rotate_roll_std_12h": 0.0028722576858170256,
+    "volt_current": 0.001922077922077925,
+    "vibration_roll_std_12h": 0.001922077922077925,
+    "rotate_roll_min_12h": 0.001326765188834167
+  },
+  "target_definition": "will_fail_within_horizon=1 if a component failure occurs for the same machine in (T, T+24h].",
+  "metrics_test_reeval": {
+    "accuracy": 0.9942117288651943,
+    "precision": 0.7689959294436907,
+    "recall": 0.9663256606990622,
+    "f1": 0.8564412542500944,
+    "confusion_matrix": [
+      [
+        128273,
+        681
+      ],
+      [
+        79,
+        2267
+      ]
+    ],
+    "threshold": 0.8,
+    "n_test": 131300
+  }
+}
